@@ -1,0 +1,32 @@
+---
+spring : 
+  jmx:
+    enabled: false
+  application:
+    name: configServer
+    
+server:
+  port: ${port}  
+  
+  
+---
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          search-paths: dev,qa
+          uri: https://github.com/vdosapati/DemoConfig.git
+          username: vdosapati
+          password: Padma@11@
+          default-label: master
+          basedir: E:/configServer/config
+          
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: ${eureka.host}
+              
+            
